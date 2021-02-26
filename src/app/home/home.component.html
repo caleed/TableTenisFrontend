@@ -1,0 +1,27 @@
+<div class="content">
+<div class="container">
+    Zespoły
+    <div *ngFor="let team of teams" class="container">
+        {{team.id}}
+        <button style="margin: 5px;" (click)='displayTeamPlayers(team.id)'>{{team.name}}</button>
+        <div *ngIf="itemClicked[team.id]">
+            <div *ngFor="let player of players">
+                {{player.playerName}}
+            </div>
+        </div>
+    </div>
+
+    Dodaj Gracza
+    <div>
+        <input class="inputClass" type="text" [(ngModel)]='playerNameInput' name="playerNameInput" placeholder="PlayerName">
+        <input class="inputClass" type="number" [(ngModel)]='playerTeamId' name="playerTeamId" placeholder="TeamId">
+        <button  class="inputClass" (click)=addPlayer()>Add new player</button>
+    </div>
+
+    Dodaj Team
+    <div>
+        <input class="inputClass" type="text" [(ngModel)]='newTeamName' name="newTeamName" placeholder="Team name">
+        <button  (click)=addTeam()>Add new team</button>
+    </div>
+</div>
+</div>
